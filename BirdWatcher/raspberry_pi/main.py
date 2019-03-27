@@ -1,3 +1,5 @@
+STATION_NAME = ""
+
 import RPi.GPIO as GPIO
 from picamera import PiCamera
 from time import sleep
@@ -12,8 +14,8 @@ lat = 46.054454
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(11, GPIO.IN)
 
-#i2c = busio.I2C(board.SCL, board.SDA)
-#bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+i2c = busio.I2C(board.SCL, board.SDA)
+bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
 
 camera = PiCamera()
 
@@ -30,10 +32,11 @@ def sendData(url):
 
   data_payload['long'] = long
   data_payload['lat'] = lat
-
-  #data_payload['temp'] = bme280.temperature
-  #data_payload['hum'] = bme280.humidity
-  #data_payload['pres'] = bme280.pressure
+    
+  data_payload['station_name'] = STATION_NAME
+  data_payload['temp'] = bme280.temperature
+  data_payload['hum'] = bme280.humidity
+  data_payload['pres'] = bme280.pressure
 
   try:
     wake_up_nn = requests.get('http://bn-nn-server.herokuapp.com/')
