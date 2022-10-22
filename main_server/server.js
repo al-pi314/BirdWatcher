@@ -225,7 +225,7 @@ app.get("/images/download", (req, res) => {
 })
 
 app.post("/images/download", (req, res) => {
-    if (req.body.password == "***REMOVED***") {
+    if (req.body.password == "") {
         var limit = req.body.limit;
         var spicies_name = spicies[req.body.spicies_id]
 
@@ -303,7 +303,7 @@ app.get("/images/view", (req, res) => {
 // Updating human set label on an image
 app.post("/images/view", (req, res) => {
     var file_id = req.body.file_id
-    if (req.body.password === "***REMOVED***") {
+    if (req.body.password === "") {
         var spicies_index = req.body.spicies;
         var spicies_name = spicies[spicies_index];
         console.log("Manual setting of bird spicies label: ")
@@ -385,7 +385,7 @@ app.post("/data", (req, res) => {
 
                         // NEURAL NETWORK
                         const formData = {
-                            password: '***REMOVED***',
+                            password: '',
                             image:  fs.createReadStream(image_location)
                         };
                         request.post({url:'http://bn-nn-server.herokuapp.com/', formData: formData}, function optionalCallback(err, httpResponse, body) {
