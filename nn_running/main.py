@@ -1,9 +1,11 @@
-import flask
 import os
+from io import BytesIO
+
+import flask
 from flask import Flask
 from PIL import Image
+
 from neuralNetwork import NeuralNetwork
-from io import BytesIO
 
 model_ready = False
 NN = None
@@ -14,7 +16,7 @@ def evalImage():
     global NN
     print(flask.request.values['password'])
     print(flask.request.files['image'])
-    if (flask.request.method == 'POST' and flask.request.values['password'] == '***REMOVED***'):
+    if (flask.request.method == 'POST' and flask.request.values['password'] == os.environ['PASSWORD']):
         print("Password OK!")
 
         image = flask.request.files['image'].read()
