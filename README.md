@@ -1,6 +1,6 @@
 ## Bird Watcher
 
-Proof of concept project on automatic bird species detection using AI deep learning.
+Proof of concept project on automatic bird species detection and recognition using AI deep learning.
 
 ## Required libaries
 
