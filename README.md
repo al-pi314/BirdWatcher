@@ -26,3 +26,12 @@ Proof of concept project on automatic bird species detection using AI deep learn
     - busio
     - adafruit_bme280
     - requests
+
+## Acknowledgments 
+- Project Team: Kalina Mihelič, Andrej Matevc, Aleksander Piciga
+- Project Mentors: Alenka Mozer, Jaka Konda, Barbara Mihelič
+- Project Location: Gimnazija Vič & ZOO Ljubljana
+
+Project was also supported by many other people all of who we thank for their efforts.
+
+More about the project can be found on our website linked in github about section.
